@@ -4,7 +4,8 @@ var timerEl = document.getElementById('timer');
 var answerEl = document.getElementById('determination');
 var timeLeft = 6;
 var timeInterval;
-var score = 0;
+var score = 1;
+var nameInput = document.getElementById('name')
 var questions = [
     {
         text:'Question 1',
@@ -74,7 +75,6 @@ function askQuestion(){
     var choicesUl = document.querySelector('.choices');
     choicesUl.innerHTML = '';
     questions[Q].choices.forEach(function(choice){
-        console.log(choice);
         var liEl = document.createElement('button');
         liEl.textContent = choice;
         liEl.setAttribute('value', choice);
@@ -109,9 +109,11 @@ function endGame(){
 
 function viewYourScore(){
    document.querySelector('.yourScore').classList.remove('hide');
-//    var myScore = localStorage.getItem("correct")
-//    var showScore = document.getElementById('score')
-//    showScore.textContent = myScore
+   var myScore = localStorage.getItem("correct")
+   var showScore = document.getElementById('score')
+   showScore.textContent = 'Your Score = ' + myScore
+   var inputedName = localStorage.getItem('nameInput')
+   console.log(inputedName)
 }
 function clockTick(){
     timeLeft--;

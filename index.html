@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="header">
-        <button class="highScore">View Highscore</button>
+        <button class="highScore">&#128081 View Highscores &#128081</button>
         <h3 class="time"></h3>
     </div>
     <div class="page">
@@ -32,9 +32,10 @@
             </div>
             <div class="yourScore container hide">
                 <div class="scoreCard">
-                    <h2>Add Your Score </h2>
-                    <p class="score"></p>
-                    <input type="text" class="name"/>
+                    <h2 class="add">Add Your Score </h2>
+                    <span id="congratulations">Nice Job!</span>
+                    <p id="score"></p>
+                    <input type="text" class="name" placeholder="Enter Your Name Here"/>
                     <div>
                         <button class="addScore">Add Score</button>
                     </div>

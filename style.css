@@ -102,3 +102,26 @@ h1{
     background-color: aqua;
     padding: 3px 8px;
 }
+
+.add{
+    padding: 20px 0px;
+}
+
+.name{
+    margin:15px 0px;
+    border-radius: 5px;
+    background-color: black;
+    color: aqua;
+}
+
+#congratulations{
+    font-size: 25px;
+    margin: 0px 0px 12px 0px;
+}
+
+.highScore{
+    padding: 6px;
+    background-color: aqua;
+    border-color: green;
+    border-radius: 3px;
+}
