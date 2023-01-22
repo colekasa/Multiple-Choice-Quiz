@@ -10,7 +10,7 @@ var score = 1;
 var nameInput = document.querySelector('.name')
 var scoreOutput = {
     name: localStorage.getItem('name'),
-    correct: localStorage.getItem('correct'),
+    correct: localStorage.getItem('correct')
 }
 var questions = [
     {
@@ -130,10 +130,10 @@ function viewYourScore(){
     }
     localStorage.setItem('name', nameInput.value)
     viewHighScores();
-    localStorage.setItem('highscore',JSON.stringify(scoreOutput));
+    localStorage.setItem('highscore',scoreOutput.value);
      var scoreHigh = localStorage.getItem('highscore');
-    // JSON.parse(localStorage.getItem('highscore'))
-    highScores.textContent = JSON.parse(localStorage.getItem('highscore'))
+    var setScore = JSON.stringify(JSON.parse(localStorage.getItem(scoreHigh)))
+    highScores.textContent = setScore.name + '' + setScore.correct 
     })
 }
 
