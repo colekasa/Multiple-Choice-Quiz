@@ -8,6 +8,10 @@ var timeLeft = 6;
 var timeInterval;
 var score = 1;
 var nameInput = document.querySelector('.name')
+var scoreOutput = {
+    name: localStorage.getItem('name'),
+    correct: localStorage.getItem('correct'),
+}
 var questions = [
     {
         text:'In web design, what does CSS stand for?',
@@ -108,6 +112,8 @@ function askQuestion(){
 }
 function endGame(){ 
         document.querySelector('.quiz').classList.add('hide');
+        Q=0;
+        timeLeft = 6
 }
 
 function viewYourScore(){
@@ -124,6 +130,10 @@ function viewYourScore(){
     }
     localStorage.setItem('name', nameInput.value)
     viewHighScores();
+    localStorage.setItem('highscore',JSON.stringify(scoreOutput));
+    localStorage.getItem('highscore');
+    JSON.parse(localStorage.getItem('highscore'))
+    
     })
 }
 
@@ -135,6 +145,7 @@ function viewHighScores(){
     playBtn.addEventListener('click', function(){
         document.querySelector('.scoreView').classList.add('hide')
         document.querySelector('.start').classList.remove('hide')
+        score=1  
     })
 
 }
