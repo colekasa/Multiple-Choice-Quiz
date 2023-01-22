@@ -131,9 +131,9 @@ function viewYourScore(){
     localStorage.setItem('name', nameInput.value)
     viewHighScores();
     localStorage.setItem('highscore',JSON.stringify(scoreOutput));
-    localStorage.getItem('highscore');
-    JSON.parse(localStorage.getItem('highscore'))
-    
+     var scoreHigh = localStorage.getItem('highscore');
+    // JSON.parse(localStorage.getItem('highscore'))
+    highScores.textContent = JSON.parse(localStorage.getItem('highscore'))
     })
 }
 
