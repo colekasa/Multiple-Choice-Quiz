@@ -96,7 +96,7 @@ h1{
     align-items: center;
 }
 
-.addScore{
+#addScore{
     margin: 20px 0px;
     border-radius: 7px;
     background-color: aqua;

@@ -1,19 +1,20 @@
 var startBtn = document.getElementById('start-btn');
+var scoreBtn = document.getElementById('addScore')
 var scoreBtn = document.getElementById('highScore');
 var timerEl = document.getElementById('timer');
 var answerEl = document.getElementById('determination');
 var timeLeft = 6;
 var timeInterval;
 var score = 1;
-var nameInput = document.getElementById('name')
+var nameInput = document.querySelector('.name')
 var questions = [
     {
-        text:'Question 1',
-        choices: ['A','B','C','D'],
-        correct: 'A',
+        text:'In web design, what does CSS stand for?',
+        choices: ['Counter Strike: Source','Cascading Style Sheet','Corrective Style Sheet','Computer Style Sheet'],
+        correct: 'Cascading Style Sheet',
     },
     {
-        text:'Question 2',
+        text:'What does CPU stand for?',
         choices: ['A','B','C','D'],
         correct: 'A',
     },
@@ -112,8 +113,11 @@ function viewYourScore(){
    var myScore = localStorage.getItem("correct")
    var showScore = document.getElementById('score')
    showScore.textContent = 'Your Score = ' + myScore
-   var inputedName = localStorage.getItem('nameInput')
-   console.log(inputedName)
+   
+   scoreBtn.addEventListener('click', function(){
+    nameInput.value()
+    console.log(nameInput.value())
+   })
 }
 function clockTick(){
     timeLeft--;
