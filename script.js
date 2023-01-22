@@ -2,6 +2,8 @@ var startBtn = document.getElementById('start-btn');
 var scoreBtn = document.getElementById('addScore');
 var timerEl = document.getElementById('timer');
 var answerEl = document.getElementById('determination');
+var highScores = document.querySelector('.scoreLi')
+var playBtn = document.querySelector('.againBtn')
 var timeLeft = 6;
 var timeInterval;
 var score = 1;
@@ -94,6 +96,7 @@ function askQuestion(){
             if(Q===questions.length){
                 endGame();
                 viewYourScore();
+                clearInterval(timeInterval);
             }
             else{
                 askQuestion();
@@ -115,11 +118,27 @@ function viewYourScore(){
    
    scoreBtn.addEventListener('click', function () {
     nameInput.value;
+    if (nameInput.value === ''){
+        alert('Please enter a name so we can add your score to the Highscores!');
+        return;
+    }
     localStorage.setItem('name', nameInput.value)
-    document.querySelector('.yourScore').classList.add('hide')
-    document.querySelector('.scoreView').classList.remove('hide')
+    viewHighScores();
     })
 }
+
+function viewHighScores(){
+    clearInterval(timeInterval);
+    document.querySelector('.yourScore').classList.add('hide')
+    document.querySelector('.scoreView').classList.remove('hide')
+
+    playBtn.addEventListener('click', function(){
+        document.querySelector('.scoreView').classList.add('hide')
+        document.querySelector('.start').classList.remove('hide')
+    })
+
+}
+
 function clockTick(){
     timeLeft--;
     timerEl.textContent = timeLeft;
