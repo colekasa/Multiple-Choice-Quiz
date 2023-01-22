@@ -1,11 +1,11 @@
 var startBtn = document.getElementById('start-btn');
-var scoreBtn = document.getElementById('addScore')
+var scoreBtn = document.getElementById('addScore');
 var timerEl = document.getElementById('timer');
 var answerEl = document.getElementById('determination');
 var timeLeft = 6;
 var timeInterval;
 var score = 1;
-var nameInput = document.getElementById('.name')
+var nameInput = document.querySelector('.name')
 var questions = [
     {
         text:'In web design, what does CSS stand for?',
@@ -113,10 +113,12 @@ function viewYourScore(){
    var showScore = document.getElementById('score')
    showScore.textContent = 'Your Score = ' + myScore
    
-   scoreBtn.addEventListener('click', function(){
+   scoreBtn.addEventListener('click', function () {
     nameInput.value;
-    console.log(nameInput.value, "nameInput")
-   })
+    localStorage.setItem('name', nameInput.value)
+    document.querySelector('.yourScore').classList.add('hide')
+    document.querySelector('.scoreView').classList.remove('hide')
+    })
 }
 function clockTick(){
     timeLeft--;
