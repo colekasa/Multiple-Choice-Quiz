@@ -9,14 +9,15 @@
 </head>
 <body>
     <div class="header">
-        <a href="highscore">View Highscore</a>
+        <button class="highScore">View Highscore</button>
         <h3 class="time"></h3>
     </div>
     <div class="page">
         <div class="start container">
             <h1>Test Your Knowledge</h1>
             <div class="intro-container">
-                <h2>In this quiz you will be given multiple choice answers that 
+                <h2>
+                    In this quiz you will be given multiple choice answers that 
                     are going to add up at the end of the quiz for a score. 
                     Lets see if you can get the Highscore!
                 </h2>
@@ -28,7 +29,18 @@
                 <h2 class="question"></h2>
                 <div class="choices"></div>
                 <p class="determination"></p>
-        </div>
+            </div>
+            <div class="yourScore container hide">
+                <h2>Add Your Score </h2>
+                <p class="score"></p>
+                <input type="text" class="name"/>
+            </div>
+            <div class="scoreView hide">
+                <h2>Highscores</h2>
+                <ol class="scoreLi"></ol>
+                <button class="againBtn">Play Again</button>
+                <button class="clearScores">Clear Highscores</button>
+            </div>
     </div>
     <script src="script.js"></script>
 </body>

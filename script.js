@@ -1,4 +1,5 @@
 var startBtn = document.getElementById('start-btn')
+var scoreBtn = document.getElementById('highScore')
 var timerEl = document.getElementById('timer')
 var answerEl = document.getElementById('determination')
 var timeLeft = 6;
@@ -80,9 +81,13 @@ function askQuestion(){
             var selected = event.target.value
             if(selected===questions[Q].correct){
                 document.querySelector('.determination').textContent = 'Correct!'
+                localStorage.setItem("correct",12)
+                localStorage.getItem("correct")
             }
             else{
                 document.querySelector('.determination').textContent = 'Incorrect!'
+                localStorage.setItem("incorrect",0)
+                localStorage.getItem("incorrect")
             }
             Q++;
             if(Q===questions.length){
@@ -97,9 +102,11 @@ function askQuestion(){
     
 }
 function endGame(){ 
-    
         document.querySelector('.quiz').classList.add('hide')
-    
+}
+
+function viewYourScore(){
+   document.querySelector('.yourScore').classList.remove('hide')
 }
 function clockTick(){
     timeLeft--;
@@ -107,6 +114,8 @@ function clockTick(){
     if(timeLeft<=0){
         timeLeft = 0
         timerEl.textContent = timeLeft
+        endGame();
+        viewYourScore();
     }
     
 }
@@ -116,3 +125,5 @@ startBtn.addEventListener('click', function(){
     timeInterval = setInterval(clockTick, 1000)
     askQuestion();
 })
+
+
