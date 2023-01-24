@@ -129,24 +129,25 @@ function viewYourScore(){
         return;
     }
     localStorage.setItem('name', nameInput.value)
+    localStorage.setItem('highscore',scoreOutput.correct);
+    console.log(highScores)
     viewHighScores();
-    localStorage.setItem('highscore',scoreOutput.value);
-     var scoreHigh = localStorage.getItem('highscore');
-    var setScore = JSON.stringify(JSON.parse(localStorage.getItem(scoreHigh)))
-    highScores.textContent = setScore.name + '' + setScore.correct 
-    })
+})
 }
 
 function viewHighScores(){
     clearInterval(timeInterval);
     document.querySelector('.yourScore').classList.add('hide')
     document.querySelector('.scoreView').classList.remove('hide')
-
+    
     playBtn.addEventListener('click', function(){
         document.querySelector('.scoreView').classList.add('hide')
         document.querySelector('.start').classList.remove('hide')
         score=1  
     })
+    var scoreHigh = localStorage.getItem('highscore');
+    var name = localStorage.getItem('name');
+    highScores.textContent = name + ' ' + scoreHigh 
 
 }
 
