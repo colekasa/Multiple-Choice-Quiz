@@ -125,3 +125,11 @@ h1{
     border-color: green;
     border-radius: 3px;
 }
+
+.againBtn{
+    background-color: green;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 15px;
+}

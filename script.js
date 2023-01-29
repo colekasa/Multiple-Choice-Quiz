@@ -19,59 +19,80 @@ var questions = [
         correct: 'Cascading Style Sheet',
     },
     {
-        text:'What does CPU stand for?',
-        choices: ['A','B','C','D'],
-        correct: 'A',
+        text:'What is the difference between let and var in Javascript?',
+        choices: ['let is block-scoped while var is function-scoped',
+        'var is block-scoped while let is function-scoped',
+        'Both let and var aer block-scoped',
+        'Both let and var are funtion-scoped'],
+        correct: 'let is block-scoped while var is function-scoped',
     },
     {
-        text:'Question 3',
-        choices: ['A','B','C','D'],
-        correct: 'A',
+        text:'Question What is the purpose of the switch statement in Javascript',
+        choices: ['to replace if...else statements',
+        'to evaluate multiple expressions with one switch statement',
+        'to execute a block of code based on multiple cases',
+        't perform mathematical operations'],
+        correct: 'to execute a block of code based on multiple cases',
     },
     {
-        text:'Question 4',
-        choices: ['A','B','C','D'],
-        correct: 'A',
+        text:'What is the correct syntax for a function declaration in Javascript?',
+        choices: ['function: myFunction()',
+        'function = myFunction()',
+        'function myFunction()',
+        'myFunction = function()'],
+        correct: 'function myFunction()',
     },
     {
-        text:'Question 5',
-        choices: ['A','B','C','D'],
-        correct: 'A',
+        text:'What is a programming language?',
+        choices: ['A tool used to create digital music',
+        'A way to communicate with computers',
+        'A type of software',
+        'A form of digital art'],
+        correct: 'A way to communicate with computers',
     },
     {
-        text:'Question 6',
-        choices: ['A','B','C','D'],
-        correct: 'A',
+        text:'What does HTML stand for?',
+        choices: ['Hyperlinks and Text Markup Language','Hyper Text Markup Language',
+        'Hyper Text and Markup Language','None of the above'],
+        correct: 'Hyper Text Markup Language',
     },
     {
-        text:'Question 7',
-        choices: ['A','B','C','D'],
-        correct: 'A',
+        text:' What is the purpose of CSS in web development?',
+        choices: ['To determine the layout of a website','To create responsive design',
+        'To add style and formatting to HTML documents','All of the above'],
+        correct: 'To add style and formatting to HTML documents',
     },
     {
-        text:'Question 8',
-        choices: ['A','B','C','D'],
-        correct: 'A',
+        text:'What is a variable in programming?',
+        choices: ['A value that changes frequently','A container for storing data values',
+        'A function','A loop'],
+        correct: 'A container for storing data values',
     },
     {
-        text:'Question 9',
-        choices: ['A','B','C','D'],
-        correct: 'A',
+        text:'What is the purpose of a loop in programming?',
+        choices: ['To repeat a specific block of code a specified number of times',
+        'To create variables',
+        'To define functions',
+        'To control the flow of a program'],
+        correct: 'To repeat a specific block of code a specified number of times',
     },
     {
-        text:'Question 10',
-        choices: ['A','B','C','D'],
-        correct: 'A',
+        text:'What is a database?',
+        choices: ['A programming language','A way to communicate with computers',
+        'A type of software','A collection of data stored and organized in a specific manner'],
+        correct: 'A collection of data stored and organized in a specific manner',
     },
     {
-        text:'Question 11',
-        choices: ['A','B','C','D'],
-        correct: 'A',
+        text:'What is the purpose of a version control system like Git?',
+        choices: ['To create and manage databases','To manage and keep track of changes to code',
+        'To design user interfaces','To define variables'],
+        correct: 'To manage and keep track of changes to code',
     },
     {
-        text:'Question 12',
-        choices: ['A','B','C','D'],
-        correct: 'A',
+        text:'What is the purpose of the SQL language?',
+        choices: ['To create websites','To design user interfaces',
+        'To manipulate and manage data in a databaseC','To define variables'],
+        correct: 'To manipulate and manage data in a database',
     },
 ];
 
@@ -130,8 +151,8 @@ function viewYourScore(){
     }
     localStorage.setItem('name', nameInput.value)
     localStorage.setItem('highscore',scoreOutput.correct);
-    console.log(highScores)
     viewHighScores();
+    localStorage.setItem('highScored', JSON.stringify(scoreOutput));
 })
 }
 
@@ -145,7 +166,7 @@ function viewHighScores(){
         document.querySelector('.start').classList.remove('hide')
         score=1  
     })
-    var scoreHigh = localStorage.getItem('highscore');
+    var scoreHigh = JSON.parse(localStorage.getItem('highscore'));
     var name = localStorage.getItem('name');
     highScores.textContent = name + ' ' + scoreHigh 
 
@@ -168,5 +189,4 @@ startBtn.addEventListener('click', function(){
     timeInterval = setInterval(clockTick, 1000);
     askQuestion();
 })
-
 
